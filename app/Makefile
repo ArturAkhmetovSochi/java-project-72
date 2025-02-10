@@ -25,9 +25,9 @@ test:
 	./gradlew test
 
 image-build:
-	docker build -t hexletcomponents/java-javalin-example:latest .
+	docker build -t ArturAkhmetovSochi/java-project-72:latest .
 
 image-push:
-	docker push hexletcomponents/java-javalin-example:latest
+	docker push ArturAkhmetovSochi/java-project-72:latest
 
 .PHONY: build
