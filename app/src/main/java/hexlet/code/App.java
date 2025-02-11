@@ -36,7 +36,9 @@ public class App {
     }
 
     public static String getDatabaseUrl() {
-        return System.getenv().getOrDefault("JDBC_DATABASE_URL", "jdbc:h2:mem:project");
+        return System.getenv().getOrDefault("jdbc:postgresql://dpg-cukrgkrtq21c73easd60-a:5432/artur_postgresql_" +
+                "database?password=nnzXVzxQbvNx0w25pycg8RSvGhMvh76D&user=artur_postgresql_database_user",
+                "jdbc:h2:mem:project");
     }
 
     public static void main(String[] args) throws IOException, SQLException {
