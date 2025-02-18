@@ -21,6 +21,7 @@ import java.util.stream.Collectors;
 import io.javalin.rendering.template.JavalinJte;
 import gg.jte.ContentType;
 import gg.jte.TemplateEngine;
+import gg.jte.CodeResolver;
 import gg.jte.resolve.ResourceCodeResolver;
 
 import static io.javalin.rendering.template.TemplateUtil.model;
@@ -67,8 +68,8 @@ public class App {
         BaseRepository.dataSource = dataSource;
 
         var app = Javalin.create(config -> {
-            config.bundledPlugins.enableDevLogging();
             config.fileRenderer(new JavalinJte(createTemplateEngine()));
+            config.bundledPlugins.enableDevLogging();
         });
 
         app.get(NamedRoutes.rootPath(), RootController::index);

@@ -1,5 +1,5 @@
 @import hexlet.code.dto.BasePage
-@param BasePage page = null
+@param BasePage page
 
 @template.layout.page(
 content = @`
@@ -67,3 +67,5 @@ content = @`
                 </footer>
             </body>
         </html>
+        `
+        )
