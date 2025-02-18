@@ -13,10 +13,6 @@
         <title>Анализатор страниц</title>
     </head>
     <body>
-        <p>
-            <a href="/">Главная</a>
-            <a href="/urls">Сайты</a>
-        </p>
         ${content}
     </body>
 </html>
