@@ -71,7 +71,6 @@ public class App {
             config.fileRenderer(new JavalinJte(createTemplateEngine()));
             config.bundledPlugins.enableDevLogging();
         });
-
         app.get(NamedRoutes.rootPath(), RootController::index);
 
         return app;

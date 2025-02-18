@@ -18,6 +18,5 @@ public class RootController {
         page.setFlash(ctx.consumeSessionAttribute("flash"));
         ctx.render("index.jte", model("page", page));
 
-
     }
 }

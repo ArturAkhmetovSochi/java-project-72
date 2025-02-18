@@ -66,6 +66,7 @@ content = @`
                     </div>
                 </footer>
             </body>
+            </section>
         </html>
         `
         )
