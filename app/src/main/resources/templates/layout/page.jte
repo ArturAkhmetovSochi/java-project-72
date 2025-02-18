@@ -1,5 +1,7 @@
+@import hexlet.code.dto.BasePage
 @import gg.jte.Content
 @param Content content
+@param BasePage page = null
 
 <!doctype html>
 <html lang="en">
