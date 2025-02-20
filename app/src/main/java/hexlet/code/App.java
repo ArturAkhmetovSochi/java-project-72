@@ -4,7 +4,9 @@ import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
 import hexlet.code.controller.RootController;
+import hexlet.code.controller.UrlController;
 import hexlet.code.repository.BaseRepository;
+import hexlet.code.repository.UrlRepository;
 import io.javalin.Javalin;
 import io.javalin.validation.ValidationException;
 import lombok.extern.slf4j.Slf4j;
@@ -71,7 +73,12 @@ public class App {
             config.fileRenderer(new JavalinJte(createTemplateEngine()));
             config.bundledPlugins.enableDevLogging();
         });
+
         app.get(NamedRoutes.rootPath(), RootController::index);
+
+        app.get(NamedRoutes.urlsPath(), UrlController::index);
+        app.get(NamedRoutes.urlPath("{id}"), UrlController::show);
+        app.post(NamedRoutes.urlsPath(), UrlController::create);
 
         return app;
     }
