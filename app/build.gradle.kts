@@ -3,6 +3,7 @@ import org.gradle.api.tasks.testing.logging.TestLogEvent
 
 plugins {
     id("java")
+    jacoco
     application
     checkstyle
     id("io.freefair.lombok") version "8.6"
@@ -50,3 +51,5 @@ tasks.test {
         showStandardStreams = true
     }
 }
+
+tasks.jacocoTestReport { reports { xml.required.set(true) } }
