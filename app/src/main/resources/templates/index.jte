@@ -11,7 +11,7 @@ content = @`
             </div>
         @endif
         <body class="d-flex flex-column min-vh-100">
-                <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <nav class="navbar navbar-expand-lg navbar-dark bg-info">
                     <div class="container-fluid">
                         <a class="navbar-brand" href="/">Анализатор страниц</a>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -31,7 +31,7 @@ content = @`
 
                     <section>
 
-                <div class="container-fluid bg-dark p-5">
+                <div class="container-fluid bg-info p-5">
                     <div class="row">
                         <div class="col-md-10 col-lg-8 mx-auto text-white">
                             <h1 class="display-3 mb-0">Анализатор страниц</h1>

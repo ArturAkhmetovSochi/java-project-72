@@ -3,6 +3,9 @@ package hexlet.code.controller;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.sql.SQLException;
+
+import hexlet.code.model.UrlCheck;
+import hexlet.code.repository.UrlCheckRepository;
 import io.javalin.http.Context;
 import io.javalin.http.NotFoundResponse;
 import static io.javalin.rendering.template.TemplateUtil.model;
@@ -15,6 +18,7 @@ import hexlet.code.repository.UrlRepository;
 
 import java.net.URL;
 import java.net.URI;
+import java.util.List;
 import java.util.Optional;
 
 
@@ -22,7 +26,12 @@ public class UrlController {
 
     public static void index(Context ctx) throws SQLException {
         var urls = UrlRepository.getEntities();
-        var page = new UrlsPage(urls);
+        List<UrlCheck> checks = UrlCheckRepository.getChecksUrl();
+        var page = new UrlsPage(urls, checks);
+        String flash = ctx.consumeSessionAttribute("flash");
+        page.setFlash(flash);
+        String flashType = ctx.consumeSessionAttribute("flashType");
+        page.setFlashType(flashType);
         ctx.render("urls/index.jte", model("page", page));
     }
 
@@ -31,8 +40,13 @@ public class UrlController {
         var url = UrlRepository.find(id)
                 .orElseThrow(() -> new NotFoundResponse("Entity with id = " + id + " not found"));
         var page = new UrlPage(url);
+        String flash = ctx.consumeSessionAttribute("flash");
+        page.setFlash(flash);
+        String flashType = ctx.consumeSessionAttribute("flashType");
+        page.setFlashType(flashType);
         ctx.render("urls/show.jte", model("page", page));
     }
+
 
 
     public static void create(Context ctx) throws SQLException,  IllegalArgumentException  {

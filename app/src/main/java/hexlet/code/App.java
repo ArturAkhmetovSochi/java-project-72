@@ -4,11 +4,10 @@ import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
 import hexlet.code.controller.RootController;
+import hexlet.code.controller.UrlCheckController;
 import hexlet.code.controller.UrlController;
 import hexlet.code.repository.BaseRepository;
-import hexlet.code.repository.UrlRepository;
 import io.javalin.Javalin;
-import io.javalin.validation.ValidationException;
 import lombok.extern.slf4j.Slf4j;
 
 import hexlet.code.util.NamedRoutes;
@@ -17,16 +16,13 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.sql.SQLException;
-import java.util.List;
 import java.util.stream.Collectors;
 
 import io.javalin.rendering.template.JavalinJte;
 import gg.jte.ContentType;
 import gg.jte.TemplateEngine;
-import gg.jte.CodeResolver;
 import gg.jte.resolve.ResourceCodeResolver;
 
-import static io.javalin.rendering.template.TemplateUtil.model;
 
 @Slf4j
 public class App {
@@ -75,10 +71,10 @@ public class App {
         });
 
         app.get(NamedRoutes.rootPath(), RootController::index);
-
         app.get(NamedRoutes.urlsPath(), UrlController::index);
         app.get(NamedRoutes.urlPath("{id}"), UrlController::show);
         app.post(NamedRoutes.urlsPath(), UrlController::create);
+        app.post(NamedRoutes.checksPath("{id}"), UrlCheckController::check);
 
         return app;
     }

@@ -1,8 +1,5 @@
 package hexlet.code.controller;
 
-import gg.jte.TemplateEngine;
-import gg.jte.TemplateOutput;
-import gg.jte.output.StringOutput;
 import hexlet.code.dto.BasePage;
 import io.javalin.http.Context;
 
