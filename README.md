@@ -6,3 +6,5 @@
 
 ### Link to Render app
 https://java-project-72-2vf5.onrender.com
+
+Анализатор страниц - сайт, который анализирует указанные страницы на SEO пригодность. 
