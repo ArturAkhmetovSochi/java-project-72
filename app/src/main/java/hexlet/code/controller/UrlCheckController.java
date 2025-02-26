@@ -1,6 +1,5 @@
 package hexlet.code.controller;
 
-import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.sql.SQLException;
@@ -23,7 +22,6 @@ import org.jsoup.nodes.Document;
 
 import java.net.URL;
 import java.net.URI;
-import java.util.Optional;
 
 public class UrlCheckController {
 
