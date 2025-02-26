@@ -30,4 +30,7 @@ image-build:
 image-push:
 	docker push ArturAkhmetovSochi/java-project-72:latest
 
+report:
+	./gradlew jacocoTestReport
+
 .PHONY: build

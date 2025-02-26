@@ -30,4 +30,7 @@ image-build:
 image-push:
 	make -C app docker push ArturAkhmetovSochi/java-project-72:latest
 
+report:
+	make -C ./gradlew jacocoTestReport
+
 .PHONY: build
