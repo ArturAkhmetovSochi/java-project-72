@@ -77,6 +77,18 @@ public class AppTest {
     }
 
     @Test
+    public void postUrl() {
+        JavalinTest.test(app, (server, client) -> {
+            var url = "url=https://www.google.com";
+            var response = client.post("/urls", url);
+            assertThat(response.code()).isEqualTo(200);
+            assertThat(response.body().string()).contains("https://www.google.com");
+            assertThat(UrlRepository.getEntities().size() == 1);
+        });
+    }
+
+
+    @Test
     void testUrlNotFound() throws Exception {
         JavalinTest.test(app, (server, client) -> {
             var response = client.get("/urls/999999");
