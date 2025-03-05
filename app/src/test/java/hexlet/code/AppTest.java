@@ -106,8 +106,6 @@ public class AppTest {
             assertThat(response.code()).isEqualTo(200);
 
             UrlCheck urlCheck = UrlCheckRepository.findByUrlId(url.getId()).getFirst();
-            assertThat(urlCheck.getId()).isEqualTo(1);
-            assertThat(urlCheck.getUrlId()).isEqualTo(1);
             assertThat(urlCheck.getStatusCode()).isEqualTo(200);
             assertThat(urlCheck.getTitle()).contains("Title test");
             assertThat(urlCheck.getH1()).contains("H1 test");

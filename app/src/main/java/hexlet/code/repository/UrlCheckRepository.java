@@ -88,13 +88,7 @@ public class UrlCheckRepository extends BaseRepository {
     }
 
     public static List<UrlCheck> getChecksUrl() throws SQLException {
-        String sql = "SELECT * "
-                + "FROM url_checks "
-                + "INNER JOIN (SELECT url_id, MAX(created_at) as max_created_at "
-                + "FROM url_checks "
-                + "GROUP BY url_id) inner_select "
-                + "ON url_checks.url_id = inner_select.url_id "
-                + "AND url_checks.created_at = inner_select.max_created_at ";
+        String sql = "SELECT DISTINCT ON (url_id) * FROM url_checks ORDER BY url_id, created_at DESC";
         try (var conn = dataSource.getConnection();
              var preparedStatement = conn.prepareStatement(sql)) {
             var resultSet = preparedStatement.executeQuery();
